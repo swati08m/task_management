@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Management</title>
+</head>
+<body>
+    <h1>Welcome to Task Management.</h1>
+    <table class="content" border="2px">
+      <thead>
+      <tr>
+        <th>Project Name</th>
+        <th>Description</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Action</th>
+      </tr></thead>
+      <tbody>
+        {% for row in records %}
+      <tr align="center">
+        <td>{{ row.project_name }}</td>
+        <td>{{ row.description }}</td>
+        <td>{{ row.start_date }}</td>
+        <td>{{ row.end_date }}</td>
+        <td><input type="submit" value="Create">  <input type="button" value="Update"> <input type="button" value="Delete"></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    </table>
+</body>
+</html>
