@@ -7,13 +7,12 @@ from utility.common_msgs import *
 from requests import get as get_requests, post as post_requests
 from os import path as ospath
 
-port = "8000"
-endpoint = "http://127.0.0.1"+":"+port
 # Create your views here.
 """
 Purpose : Goto Index Page
 """
 def indexpage(request):
+    endpoint = "http://"+request.META.get("REMOTE_ADDR") +":"+port
     whole_endpoint = ospath.join(endpoint, "api", "projects")
     headers = headers_mapping["json"]
     response = get_requests(whole_endpoint, headers=headers)
